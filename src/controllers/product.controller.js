@@ -5,9 +5,9 @@ export default class ProductController
 {
  getProduct(req,res)
  {
-   console.log(ProductModel.get())
+    const products = ProductModel.get()
     console.log(path.resolve())
-    return res.sendFile(path.join(path.resolve(),'src','views','products.html'))
+    res.render("products", { products })
  }
 
 }

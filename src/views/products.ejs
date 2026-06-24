@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./products.css">
+    <title>Products</title>
+</head>
+<body>
+<nav>
+ <div class="nav">
+ <ul>
+    <li><h1>Inventory App</h1></li>
+    <li id="pageName">Products</li>
+ </ul>
+ </div>
+</nav>
+
+<main>
+    <div class="product-container">
+        <div class="product-table">
+            <table>
+                <thead>  
+                  <tr>
+                    <th>ID</th>
+                     <th>Name</th>
+                     <th>Descriptions</th>
+                     <th>Price</th>
+                     <th>Products</th>
+                  </tr>
+                </thead>
+
+               <tbody>
+                <% products.forEach(product=>{ %>
+                <tr>
+                <td><%= product.id %></td>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
+                <td><img src="<%= product.image %>" alt="<%= product.name %>" srcset=""></td>
+              </tr>
+            <%})%> 
+
+             </tbody>
+             
+            </table>
+        </div>
+    </div>
+</main>
+
+<footer></footer>
+</body>
+</html>
