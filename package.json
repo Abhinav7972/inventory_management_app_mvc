@@ -1,0 +1,16 @@
+{
+  "name": "inventory_app",
+  "version": "1.0.0",
+  "description": "these is inventory app",
+  "license": "ISC",
+  "author": "abhinav",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {}
+}
