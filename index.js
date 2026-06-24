@@ -1,5 +1,6 @@
 import express from  'express'
 import ProductController from './src/controllers/product.controller.js'
+import EjsLayouts from 'express-ejs-layouts'
 import path from 'path'
 
 const server = express()
@@ -11,7 +12,11 @@ const pc = new ProductController()
 server.set("view engine","ejs")
 server.set("views",path.join(path.resolve(),'src','views'))
 
+
+
 server.use(express.static('src/views'))
+//ejs layout
+server.use(EjsLayouts)
 
 server.get('/',pc.getProduct);
 
