@@ -5,6 +5,10 @@ import path from 'path'
 
 const server = express()
 
+//parse form data
+server.use(express.urlencoded({extended : true}))
+
+//instanciates product controller
 const pc = new ProductController()
 
 
@@ -22,5 +26,6 @@ server.use(EjsLayouts)
 //settin routes 
 server.get('/',pc.getProduct);
 server.get('/new',pc.getProductForm)
+server.post('/',pc.addNewProduct)
 
 server.listen(3000,()=>console.log('start'))
