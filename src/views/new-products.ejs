@@ -2,6 +2,11 @@
 
 <div class="product-form">
 <h1>Add new product</h1>
+<%if(errorMessage){%>
+<div class="error">
+    <%=errorMessage%>
+</div>
+<%}%>
 <form action="/" method="post">
     <label for="name">Product name :</label>
     <input name="name" id="name" type="text">
