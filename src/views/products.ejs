@@ -8,6 +8,7 @@
                      <th>Descriptions</th>
                      <th>Price</th>
                      <th>Products</th>
+                     <th>Actions</th>
                   </tr>
                 </thead>
 
@@ -19,6 +20,7 @@
                 <td><%= product.description %></td>
                 <td><%= product.price %></td>
                 <td><img src="<%= product.image %>" alt="<%= product.name %>" srcset=""></td>
+                <td><a href="/update-product?id=<%=product.id %>">Update</a></td>
               </tr>
             <%})%> 
 
