@@ -20,7 +20,9 @@
                 <td><%= product.description %></td>
                 <td><%= product.price %></td>
                 <td><img src="<%= product.image %>" alt="<%= product.name %>" srcset=""></td>
-                <td><a href="/update-product/<%=product.id %>">Update</a></td>
+                <td><a href="/update-product/<%=product.id %>" id="update-btn">Update</a></td>
+                <td><a href="/delete-product/<%=product.id %>" id="delete-btn">Delete</a></td>
+
               </tr>
             <%})%> 
 
