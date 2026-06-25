@@ -13,11 +13,14 @@ server.set("view engine","ejs")
 server.set("views",path.join(path.resolve(),'src','views'))
 
 
-
+//set up views
 server.use(express.static('src/views'))
+
 //ejs layout
 server.use(EjsLayouts)
 
+//settin routes 
 server.get('/',pc.getProduct);
+server.get('/new',pc.getProductForm)
 
 server.listen(3000,()=>console.log('start'))
