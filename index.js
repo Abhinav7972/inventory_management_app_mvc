@@ -1,6 +1,7 @@
 import express from  'express'
 import ProductController from './src/controllers/product.controller.js'
 import EjsLayouts from 'express-ejs-layouts'
+import validateRequest from './src/middlewares/validation.middleware.js'
 import path from 'path'
 
 const server = express()
@@ -26,6 +27,6 @@ server.use(EjsLayouts)
 //settin routes 
 server.get('/',pc.getProduct);
 server.get('/new',pc.getProductForm)
-server.post('/',pc.addNewProduct)
+server.post('/',validateRequest,pc.addNewProduct)
 
 server.listen(3000,()=>console.log('start'))
