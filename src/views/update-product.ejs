@@ -7,16 +7,16 @@
     <%=errorMessage%>
 </div>
 <%}%>
-<form action="/" method="post">
-    <input type="hidden">
+<form action="/update-product" method="post">
+    <input type="hidden" id="id" name="id" value="<%=product.id%>">
     <label for="name">Product name :</label>
-    <input name="name" id="name" type="text">
+    <input name="name" id="name" type="text" value="<%= product.name %>">
     <label for="desc">Product description :</label>
-    <input id="desc" name="desc"  type="text">
+    <input id="desc" name="description"  type="text" value="<%= product.description %>">
     <label for="price">Product  price :</label>
-    <input id="price" name="price" type="text">
+    <input id="price" name="price" type="text" value="<%= product.price %>">
     <label  for="image">Product image :</label>
-    <input name="image" id="image" type="text">
+    <input name="image" id="image" type="text" value="<%= product.image %>">
     <button>Add product</button>
 </form>
 </div>
