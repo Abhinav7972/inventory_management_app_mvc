@@ -14,6 +14,12 @@ export default class ProductModel
         return products;
     }
 
+    static update(productObj)
+    {
+      const index = products.findIndex((p)=> p.id == productObj.id);
+      products[index] = productObj;
+    }
+
     static add(productObj)
     {
       let newProduct = new ProductModel(productObj.id=products.length+1,
@@ -31,6 +37,8 @@ export default class ProductModel
     {
       return products.find((p)=>p.id==id)
     }
+
+
 }
 
 const products = [
