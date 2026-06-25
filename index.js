@@ -27,7 +27,8 @@ server.use(EjsLayouts)
 //settin routes 
 server.get('/',pc.getProduct);
 server.get('/new',pc.getProductForm)
-server.get('/update-product',pc.getUpdateProductView)
+server.get('/update-product/:id',pc.getUpdateProductView)
+server.post('/update-product',pc.postUpdateproduct)
 server.post('/',validateRequest,pc.addNewProduct)
 
 server.listen(3000,()=>console.log('start'))
