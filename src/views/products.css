@@ -108,3 +108,26 @@
     background-color: rgb(14, 163, 223);
     border-radius: 10px;
 }
+
+
+#update-btn 
+{
+    background-color: yellow;
+    color:  rgb(255, 47, 47);
+    padding:  8px 5px;
+    border-radius: 10px;
+    width: 50px;
+    text-decoration: none;
+}
+
+
+
+#delete-btn 
+{
+    background-color: rgb(255, 8, 0);
+    color:  rgb(224, 213, 213);
+    padding:  8px 5px;
+    border-radius: 10px;
+    width: 50px;
+    text-decoration: none;
+}
