@@ -22,9 +22,14 @@ export default class ProductModel
 
     static add(productObj)
     {
-      let newProduct = new ProductModel(productObj.id=products.length+1,
+      const newId =
+  products.length > 0
+    ? Math.max(...products.map(product => Number(product.id))) + 1
+    : 1;
+      let newProduct = new ProductModel(
+        newId,
         productObj.name,
-        productObj.desc,
+        productObj.description,
         productObj.price,
         productObj.image,
       );
@@ -38,6 +43,12 @@ export default class ProductModel
       return products.find((p)=>p.id==id)
     }
 
+    static delete(id)
+    {
+      const index = products.findIndex((p)=>p.id == id)
+      products.splice(index,1);
+    }
+
 
 }
 
@@ -47,4 +58,3 @@ const products = [
   new ProductModel(3, 'Thinking, Fast and Slow', 'A deep dive into the two systems that drive the way we think.', 450, 'https://i.pinimg.com/736x/3b/5a/0f/3b5a0fbce8a9246201471c81e616b6fc.jpg'),
   new ProductModel(4, 'Start With Why', 'How great leaders inspire everyone to take action.', 350, 'https://i.pinimg.com/736x/cd/93/78/cd9378722245d874ecd9854adfef6746.jpg')
 ];
-
