@@ -27,7 +27,7 @@ export default class ProductController
 
  getUpdateProductView(req,res,next)
  {
-   const {id} = req.query;
+   const id = req.params.id;
    const productFound = ProductModel.getByID(id);
 
    if(productFound)
@@ -41,5 +41,15 @@ export default class ProductController
    {
     res.status(401).send('product not found');
    }
+ }
+
+
+ postUpdateproduct(req,res,next)
+ {
+console.log(req.body)
+  
+    ProductModel.update(req.body)
+    const products = ProductModel.get()
+  res.render("products",{products}) 
  }
 }
