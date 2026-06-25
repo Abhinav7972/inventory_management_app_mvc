@@ -1,0 +1,22 @@
+
+
+<div class="product-form">
+<h1>update product</h1>
+<%if(errorMessage){%>
+<div class="error">
+    <%=errorMessage%>
+</div>
+<%}%>
+<form action="/" method="post">
+    <input type="hidden">
+    <label for="name">Product name :</label>
+    <input name="name" id="name" type="text">
+    <label for="desc">Product description :</label>
+    <input id="desc" name="desc"  type="text">
+    <label for="price">Product  price :</label>
+    <input id="price" name="price" type="text">
+    <label  for="image">Product image :</label>
+    <input name="image" id="image" type="text">
+    <button>Add product</button>
+</form>
+</div>
