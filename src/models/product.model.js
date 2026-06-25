@@ -16,7 +16,7 @@ export default class ProductModel
 
     static add(productObj)
     {
-      let newProduct = new ProductModel(products.length+1,
+      let newProduct = new ProductModel(productObj.id=products.length+1,
         productObj.name,
         productObj.desc,
         productObj.price,
@@ -24,6 +24,12 @@ export default class ProductModel
       );
       
       products.push(newProduct);
+    }
+
+
+    static getByID(id)
+    {
+      return products.find((p)=>p.id==id)
     }
 }
 
