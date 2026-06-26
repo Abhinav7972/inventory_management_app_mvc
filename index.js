@@ -31,6 +31,7 @@ server.use(EjsLayouts)
 
 //settin routes 
 server.get('/register',uc.getRegister)
+server.get('/login',uc.getLogin)
 server.get('/',pc.getProduct);
 server.get('/new',pc.getProductForm)
 server.get('/update-product/:id',pc.getUpdateProductView)
