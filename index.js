@@ -6,6 +6,9 @@ import path from 'path'
 
 const server = express()
 
+//adding public folder
+server.use(express.static('public'))
+
 //parse form data
 server.use(express.urlencoded({extended : true}))
 
@@ -28,8 +31,7 @@ server.use(EjsLayouts)
 server.get('/',pc.getProduct);
 server.get('/new',pc.getProductForm)
 server.get('/update-product/:id',pc.getUpdateProductView)
-server.get('/delete-product/:id',pc.deleteProduct)
+server.post('/delete-product/:id',pc.deleteProduct)
 server.post('/update-product',pc.postUpdateproduct)
 server.post('/',validateRequest,pc.addNewProduct)
-
 server.listen(3000,()=>console.log('start'))
