@@ -36,8 +36,8 @@ server.post('/delete-product/:id',pc.deleteProduct)
 server.post('/update-product',pc.postUpdateproduct)
 
 server.post('/',
-     validateRequest,
      uploadFile.single('image'),
+     validateRequest,
      pc.addNewProduct)
 
 server.listen(3000,()=>console.log('start'))
