@@ -3,6 +3,7 @@ import ProductController from './src/controllers/product.controller.js'
 import EjsLayouts from 'express-ejs-layouts'
 import validateRequest from './src/middlewares/validation.middleware.js'
 import path from 'path'
+import { uploadFile } from './src/middlewares/fileUpload.middleware.js'
 
 const server = express()
 
@@ -33,5 +34,10 @@ server.get('/new',pc.getProductForm)
 server.get('/update-product/:id',pc.getUpdateProductView)
 server.post('/delete-product/:id',pc.deleteProduct)
 server.post('/update-product',pc.postUpdateproduct)
-server.post('/',validateRequest,pc.addNewProduct)
+
+server.post('/',
+     validateRequest,
+     uploadFile.single('image'),
+     pc.addNewProduct)
+
 server.listen(3000,()=>console.log('start'))
