@@ -130,4 +130,6 @@
     border-radius: 10px;
     width: 50px;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
 }
