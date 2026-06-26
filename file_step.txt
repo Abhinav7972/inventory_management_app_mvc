@@ -1,0 +1,6 @@
+step 1: install lib multur done
+step 2 :change the view done
+step 3 : add middleware to handle files done
+step 4 : apply middleware to request done
+step 5 : update controller to update url of image done
+
