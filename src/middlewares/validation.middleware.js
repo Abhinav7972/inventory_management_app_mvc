@@ -5,8 +5,7 @@ const validateRequest = async (req,res,next)=>{
      //set the rules
      const rules = [
         body('name').notEmpty().withMessage('name is required'),
-        body('price').isFloat({gt:0}).withMessage('price should be greater than 0'),
-        body('image').isURL().withMessage('Invalid URL')
+        body('price').isFloat({gt:0}).withMessage('price should be greater than 0')
      ]
    
 //run the rules
