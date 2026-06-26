@@ -5,7 +5,14 @@ const validateRequest = async (req,res,next)=>{
      //set the rules
      const rules = [
         body('name').notEmpty().withMessage('name is required'),
-        body('price').isFloat({gt:0}).withMessage('price should be greater than 0')
+        body('price').isFloat({gt:0}).withMessage('price should be greater than 0'),
+        body('image').custom((value,{req})=>{
+         if(!req.file)
+         {
+          throw new Error('image is required')
+         }
+         return true;
+        })
      ]
    
 //run the rules
