@@ -20,7 +20,7 @@ export default class ProductModel
       products[index] = productObj;
     }
 
-    static add(productObj)
+    static add(name,description,price,image)
     {
       const newId =
   products.length > 0
@@ -28,10 +28,10 @@ export default class ProductModel
     : 1;
       let newProduct = new ProductModel(
         newId,
-        productObj.name,
-        productObj.description,
-        productObj.price,
-        productObj.image,
+        name,
+        description,
+        price,
+        image,
       );
       
       products.push(newProduct);
