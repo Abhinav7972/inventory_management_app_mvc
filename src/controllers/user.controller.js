@@ -6,4 +6,9 @@ export default class UserController
     {
         res.render("Register");
     }
+
+    getLogin(req,res)
+    {
+        res.render("login");
+    }
 }
