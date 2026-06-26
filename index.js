@@ -4,6 +4,7 @@ import EjsLayouts from 'express-ejs-layouts'
 import validateRequest from './src/middlewares/validation.middleware.js'
 import path from 'path'
 import { uploadFile } from './src/middlewares/fileUpload.middleware.js'
+import UserController from './src/controllers/user.controller.js'
 
 const server = express()
 
@@ -15,7 +16,7 @@ server.use(express.urlencoded({extended : true}))
 
 //instanciates product controller
 const pc = new ProductController()
-
+const uc = new UserController()
 
 //set up view engine
 server.set("view engine","ejs")
@@ -29,6 +30,7 @@ server.use(express.static('src/views'))
 server.use(EjsLayouts)
 
 //settin routes 
+server.get('/register',uc.getRegister)
 server.get('/',pc.getProduct);
 server.get('/new',pc.getProductForm)
 server.get('/update-product/:id',pc.getUpdateProductView)
