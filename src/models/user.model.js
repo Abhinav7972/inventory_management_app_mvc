@@ -13,6 +13,12 @@ export default class UserModel
         const newUser =  new UserModel(users.length + 1,name,email,password);
         users.push(newUser);
     }
+
+    static isvalidUser(email,password)
+    {
+        const result = users.find(u => u.email === email && u.password === password);
+        return result;
+    }
 }
 
 const users = []
