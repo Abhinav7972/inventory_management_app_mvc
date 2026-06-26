@@ -37,6 +37,7 @@ server.get('/new',pc.getProductForm)
 server.get('/update-product/:id',pc.getUpdateProductView)
 server.post('/delete-product/:id',pc.deleteProduct)
 server.post('/update-product',pc.postUpdateproduct)
+server.post('/register',uc.postRegister)
 
 server.post('/',
      uploadFile.single('image'),
