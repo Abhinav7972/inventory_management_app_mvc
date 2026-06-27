@@ -5,6 +5,7 @@ import validateRequest from './src/middlewares/validation.middleware.js'
 import path from 'path'
 import { uploadFile } from './src/middlewares/fileUpload.middleware.js'
 import UserController from './src/controllers/user.controller.js'
+import session from 'express-session'
 
 const server = express()
 
@@ -28,6 +29,14 @@ server.use(express.static('src/views'))
 
 //ejs layout
 server.use(EjsLayouts)
+
+//express session
+server.use(session({
+     secret:'secretKey',
+     resave:false,
+     saveUninitialized: false,
+     cookie: {secure:false}
+}))
 
 //settin routes 
 server.get('/register',uc.getRegister)
