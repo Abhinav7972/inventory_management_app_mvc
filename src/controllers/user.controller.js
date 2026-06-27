@@ -1,6 +1,8 @@
 import UserModel from "../models/user.model.js";
 import productModel from "../models/product.model.js";
 
+
+
 export default class UserController
 {
     getRegister(req,res)
@@ -29,6 +31,7 @@ export default class UserController
         {
             return res.render("login",{errorMessage : "Invalid credentials"});
         }
+        req.session.userEMail=email;
         var products = productModel.get()
         res.render("products",{products : products});
     }
