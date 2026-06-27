@@ -6,6 +6,7 @@ import path from 'path'
 import { uploadFile } from './src/middlewares/fileUpload.middleware.js'
 import UserController from './src/controllers/user.controller.js'
 import session from 'express-session'
+import { auth } from './src/middlewares/auth.middleware.js'
 
 const server = express()
 
@@ -41,16 +42,16 @@ server.use(session({
 //settin routes 
 server.get('/register',uc.getRegister)
 server.get('/login',uc.getLogin)
-server.get('/',pc.getProduct);
-server.get('/new',pc.getProductForm)
-server.get('/update-product/:id',pc.getUpdateProductView)
-server.post('/delete-product/:id',pc.deleteProduct)
-server.post('/update-product',pc.postUpdateproduct)
+server.get('/',auth, pc.getProduct);
+server.get('/new',auth,pc.getProductForm)
+server.get('/update-product/:id',auth,pc.getUpdateProductView)
+server.post('/delete-product/:id',auth,pc.deleteProduct)
+server.post('/update-product',auth,pc.postUpdateproduct)
 server.post('/register',uc.postRegister)
 server.post('/login',uc.postLogin)
 
 
-server.post('/',
+server.post('/',auth,
      uploadFile.single('image'),
      validateRequest,
      pc.addNewProduct)
