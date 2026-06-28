@@ -7,6 +7,8 @@ import { uploadFile } from './src/middlewares/fileUpload.middleware.js'
 import UserController from './src/controllers/user.controller.js'
 import session from 'express-session'
 import { auth } from './src/middlewares/auth.middleware.js'
+import cookieParser from 'cookie-parser'
+import { setLastVisit } from './src/middlewares/lastvisit.middleware.js'
 
 const server = express()
 
@@ -38,6 +40,13 @@ server.use(session({
      saveUninitialized: false,
      cookie: {secure:false}
 }))
+
+//cookie parser 
+server.use(cookieParser())
+
+//set last visit middleware
+server.use(setLastVisit)
+
 
 //settin routes 
 server.get('/register',uc.getRegister)
