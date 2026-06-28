@@ -33,6 +33,6 @@ export default class UserController
         }
         req.session.userEmail=email;
         var products = productModel.get()
-        res.render("products",{products : products});
+        res.render("products",{products : products,userEmail:req.session.userEmail});
     }
 }

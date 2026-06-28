@@ -7,13 +7,13 @@ export default class ProductController
  {
     const products = ProductModel.get()
     console.log(path.resolve())
-    res.render("products", { products })
+    res.render("products", { products,userEmail:req.session.userEmail})
  }
 
 
  getProductForm(req,res)
  {
-   return res.render('new-products',{errorMessage:null})
+   return res.render('new-products',{errorMessage:null,userEmail:req.session.userEmail})
  }
  
  addNewProduct(req,res)
@@ -24,7 +24,7 @@ export default class ProductController
    console.log(req.body)
     ProductModel.add(name,description,price,imageURL);
     const products = ProductModel.get()
-  res.render("products",{products}) 
+    res.render("products",{products,userEmail:req.session.userEmail}) 
  }
 
  getUpdateProductView(req,res,next)
@@ -52,7 +52,7 @@ console.log(req.body)
   
     ProductModel.update(req.body)
     const products = ProductModel.get()
-  res.render("products",{products}) 
+  res.render("products",{products,userEmail:req.session.userEmail}) 
  }
 
  deleteProduct(req,res)
