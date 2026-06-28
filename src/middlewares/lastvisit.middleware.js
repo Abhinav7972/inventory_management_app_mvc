@@ -4,7 +4,7 @@ export const setLastVisit = (req,res,next) =>{
 
     if(req.cookies.lastvisit)
     {
-        res.locals.lastvisit =  new Date(req.cookies.lastvisit).toLocaleString()    
+      res.locals.lastvisit =  new Date(req.cookies.lastvisit).toLocaleString()
     }
   res.cookie('lastvisit',new Date().toISOString(),{
    maxAge : 2*24*60*60*1000, //2 days
