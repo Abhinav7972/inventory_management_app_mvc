@@ -1,107 +1,192 @@
-# Inventory Management System
+# Inventory Management App (MVC)
 
-A modern, efficient inventory management application built with **Node.js** and the **MVC (Model-View-Controller)** architecture. This application streamlines stock tracking, warehouse operations, and inventory analytics with an intuitive user interface.
+A learning-focused inventory management application built with Node.js, Express, EJS, and the Model-View-Controller (MVC) pattern.
 
-## 🎯 Project Overview
+The application supports product management, image uploads, form validation, session-based authentication, and last-visit tracking using cookies.
 
-This inventory management system provides a robust solution for tracking and managing product inventory. Built with industry-standard patterns and technologies, it offers a clean separation of concerns through the MVC architecture, making the codebase maintainable and scalable.
+> **Note:** Products and users are stored in memory, so all changes are lost whenever the server restarts.
 
-### Key Features
+## Features
 
-- ✅ **Stock Tracking**: Real-time inventory monitoring and updates
-- ✅ **Product Management**: Add, edit, and delete product information
-- ✅ **MVC Architecture**: Clean code structure with separated concerns
-- ✅ **Form Validation**: Express-validator for robust input validation
-- ✅ **Responsive UI**: EJS templating with CSS styling
-- ✅ **Scalable Design**: Easy to extend with new features
+- User registration, login, and logout
+- Session-based route protection
+- Add products with image uploads
+- View, update, and delete products
+- Server-side form validation
+- Last-visit tracking with cookies
+- MVC project architecture
+- Server-rendered EJS views
+- Responsive CSS and client-side JavaScript
 
-## 🛠️ Tech Stack
+## Technologies
 
-| Technology | Purpose | Version |
-|-----------|---------|---------|
-| **Express.js** | Backend framework | ^5.2.1 |
-| **EJS** | Templating engine | ^6.0.1 |
-| **Express-EJS-Layouts** | Layout management | ^2.5.1 |
-| **Express-Validator** | Input validation | ^7.3.2 |
-| **JavaScript** | Programming language | ES6+ |
-| **CSS** | Styling | 3 |
+- Node.js
+- Express
+- EJS
+- Express EJS Layouts
+- Express Session
+- Express Validator
+- Multer
+- Cookie Parser
+- HTML and CSS
 
-### Language Composition
-- **JavaScript**: 50.5%
-- **EJS**: 31.5%
-- **CSS**: 18%
+## Project Structure
 
-## 📋 Prerequisites
+```text
+.
+|-- index.js
+|-- package.json
+|-- public/
+|   |-- main.js
+|   |-- css/
+|   |   `-- products.css
+|   `-- images/
+`-- src/
+    |-- controllers/
+    |   |-- product.controller.js
+    |   `-- user.controller.js
+    |-- middlewares/
+    |   |-- auth.middleware.js
+    |   |-- fileUpload.middleware.js
+    |   |-- lastvisit.middleware.js
+    |   `-- validation.middleware.js
+    |-- models/
+    |   |-- product.model.js
+    |   `-- user.model.js
+    `-- views/
+        |-- layout.ejs
+        |-- login.ejs
+        |-- Register.ejs
+        |-- products.ejs
+        |-- new-products.ejs
+        `-- update-product.ejs
+```
 
-Before you begin, ensure you have the following installed:
-- **Node.js** (v14.0.0 or higher)
-- **npm** (v6.0.0 or higher)
+## Prerequisites
 
-## 🚀 Getting Started
+Make sure you have the following installed:
 
-### 1. Clone the Repository
+- Node.js 18 or newer
+- npm
+
+Check your installed versions:
+
+```bash
+node --version
+npm --version
+```
+
+## Installation
+
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/Abhinav7972/inventory_management_app_mvc.git
 cd inventory_management_app_mvc
+```
 
+2. Install the dependencies:
 
-
-2. Install Dependencies
-bash
+```bash
 npm install
-3. Start the Application
-bash
-npm start
-The application will be available at http://localhost:3000 (or the port specified in your configuration).
+```
 
-📁 Project Structure
-Code
-inventory_management_app_mvc/
-├── models/              # Data models and database logic
-├── views/               # EJS templates and UI components
-├── controllers/         # Request handlers and business logic
-├── routes/              # API routes and endpoints
-├── public/              # Static files (CSS, images)
-├── package.json         # Project dependencies
-├── README.md            # This file
-└── index.js             # Application entry point
-🔧 Configuration
-Ensure your application is configured with appropriate:
+3. Start the application:
 
-Port settings
-Database connections (if applicable)
-Validation rules
-Environment variables
-🎓 MVC Architecture
-This project follows the Model-View-Controller pattern:
+```bash
+node index.js
+```
 
-Models: Handle data logic and database operations
-Views: EJS templates for rendering UI components
-Controllers: Process requests and manage application flow
-This separation ensures:
+4. Open the application:
 
-Clean code organization
-Easy maintenance and testing
-Scalability for future enhancements
-📝 Usage Examples
-Adding a New Product
-Navigate to the "Add Product" section and fill in the required fields. The form will validate your input automatically.
+```text
+http://localhost:3000
+```
 
-Viewing Inventory
-Access the dashboard to view all products in inventory with real-time stock levels.
+## How to Use
 
-Updating Stock
-Quickly update stock quantities for any product in the system.
+1. Open `/register` and create an account.
+2. Log in using the registered email and password.
+3. View the available products.
+4. Add a product using the **New Products** page.
+5. Upload an image and provide a name, description, and price.
+6. Update or delete products from the product list.
+7. Use **Logout** to end the current session.
 
+## Application Routes
 
+| Method | Route | Description | Authentication |
+|---|---|---|---|
+| GET | `/register` | Display the registration form | No |
+| POST | `/register` | Register a user | No |
+| GET | `/login` | Display the login form | No |
+| POST | `/login` | Log in a user | No |
+| GET | `/logout` | Log out the current user | No |
+| GET | `/` | Display all products | Yes |
+| POST | `/` | Add a product | Yes |
+| GET | `/new` | Display the new-product form | Yes |
+| GET | `/update-product/:id` | Display the update form | Yes |
+| POST | `/update-product` | Update a product | Yes |
+| POST | `/delete-product/:id` | Delete a product | Yes |
 
+## Architecture
 
-📚 Dependencies
-All dependencies are listed in package.json:
-{
-  "ejs": "^6.0.1",
-  "express": "^5.2.1",
-  "express-ejs-layouts": "^2.5.1",
-  "express-validator": "^7.3.2"
-}
+The application follows the MVC pattern:
+
+- **Models** manage in-memory product and user data.
+- **Views** render the user interface with EJS.
+- **Controllers** process requests and coordinate models and views.
+- **Middleware** handles authentication, validation, cookies, and file uploads.
+- **Public assets** contain browser-side JavaScript, stylesheets, and uploaded images.
+
+## Validation
+
+When adding a product:
+
+- The product name is required.
+- The price must be greater than zero.
+- An image file is required.
+
+Validation errors are displayed on the product form.
+
+## Current Limitations
+
+This project is intended for learning and demonstration purposes.
+
+- Data is stored in memory and resets when the server restarts.
+- Passwords are stored as plain text.
+- The session secret is hard-coded.
+- The default in-memory session store is used.
+- Uploaded files do not have file-type or size validation.
+- User registration and login inputs are not fully validated.
+- Automated tests have not been added.
+- The server port is currently fixed at `3000`.
+
+Do not use the current authentication or storage implementation in production.
+
+## Possible Improvements
+
+- Add MongoDB, PostgreSQL, or another persistent database.
+- Hash passwords using bcrypt.
+- Move secrets and configuration into environment variables.
+- Add duplicate-email validation.
+- Validate uploaded file types and sizes.
+- Add centralized error handling.
+- Add product quantity and stock tracking.
+- Add unit and integration tests.
+- Add search, filtering, sorting, and pagination.
+- Use a production-ready session store.
+
+## Dependencies
+
+- `express`
+- `ejs`
+- `express-ejs-layouts`
+- `express-session`
+- `express-validator`
+- `multer`
+- `cookie-parser`
+
+## License
+
+This project uses the ISC license.
