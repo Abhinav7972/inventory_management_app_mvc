@@ -42,6 +42,7 @@ server.use(session({
 //settin routes 
 server.get('/register',uc.getRegister)
 server.get('/login',uc.getLogin)
+server.get('/logout',uc.logout)
 server.get('/',auth, pc.getProduct);
 server.get('/new',auth,pc.getProductForm)
 server.get('/update-product/:id',auth,pc.getUpdateProductView)
