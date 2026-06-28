@@ -14,9 +14,15 @@
     <li><h1>Inventory App</h1></li>
     <li id="pageName"><a href="/">Products</a></li>
     <li><a href="/new">new products</a></li>
+   
+   <%if(locals.userEmail) {%>
+       
+    <li><a href="/logout">Logout</a></li>
+   <%}else{%>
     <li><a href="/register">Register</a></li>
     <li><a href="/login">Login</a></li>
-
+   <%}%> 
+    
  </ul>
  </div>
 </nav>
